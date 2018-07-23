@@ -13,14 +13,30 @@
         <span>Item count: <span id="item-count">0</span></span>
         <span>Unchecked count: <span id="unchecked-count">0</span></span>
       </div>
-      <button class="button center" onClick="newTodo()">New TODO</button>
+    <!--   <button class="button center" onClick="newTodo()">New TODO</button> -->
+      <h3 class="text-center">TODO List</h3>
+      <!-- todo form begin -->
+      <form id="todo-form">
+        <div class="form-row align-items-center">
+          <div class="col col-sm-10">
+            <label class="sr-only" for="inlineFormInput">Add todo item</label>
+            <input type="text" class="form-control mb-2" id="todoInput" placeholder="Add todo item">
+          </div>
+
+          <div class="col col-sm-2">
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+          </div>
+        </div>
+      </form>
+      <!-- todo form end -->
       <ul id="todo-list" class="todo-list"></ul>
     </div>
-    <script src="./script.js"></script>
-    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="./script.js"></script>
+    <!-- Optional JavaScript -->
   </body>
 </html>

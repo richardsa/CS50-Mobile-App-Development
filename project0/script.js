@@ -10,5 +10,13 @@ const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
 function newTodo() {
-  alert('New TODO button clicked!')
+  const newItem = $('#todoInput').val();
+  console.log(newItem);
+  $("#todo-list").prepend("<li>" + newItem + "</li>");
+  $('#todoInput').val('');
 }
+
+$('#todo-form').on('submit', function(e){
+    e.preventDefault();
+    newTodo();
+});
