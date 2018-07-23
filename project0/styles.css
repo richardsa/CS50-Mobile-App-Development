@@ -64,3 +64,7 @@ ul {
 .todo-container:first-of-type {
   border-top: 1px solid #333;
 }
+
+.finished-item {
+  text-decoration: line-through;
+}
