@@ -1,5 +1,6 @@
 # Working Prototype
-App can be viewed [here](http://htmlpreview.github.io/?https://github.com/richardsa/CS50-Mobile-App-Development/blob/master/project0/index.html)
+App can be viewed [here](http://htmlpreview.github.io/?https://github.com/richardsa/CS50-Mobile-App-Development/blob/master/project0/index.html).
+
 Project description below:
 
 # Project 0
