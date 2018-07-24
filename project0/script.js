@@ -8,12 +8,15 @@ const classNames = {
 const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
+const todoInput = document.getElementById('todoInput')
+const todoForm = document.getElementById('todo-form')
 
+/*   main to do function */
 function newTodo() {
-  const newItem = $('#todoInput').val();
+  const newItem = $(todoInput).val();
   if (newItem !== '') {
-    $("#todo-list").prepend('<li><input class="form-check-input finished" type="checkbox" value="' + newItem + '"> <label class="form-check-label" for="defaultCheck1">' + newItem + '</label> <span class="oi deleteItem" data-glyph="trash" title="trash" aria-hidden="true"></span></li>');
-    $('#todoInput').val('');
+    $(list).prepend('<li><input class="form-check-input finished" type="checkbox" value="' + newItem + '"> <label class="form-check-label" for="defaultCheck1">' + newItem + '</label> <span class="oi deleteItem" data-glyph="trash" title="delete item" aria-hidden="true"></span></li>');
+    $(todoInput).val('');
     getCounts();
   }
 }
@@ -21,19 +24,19 @@ function newTodo() {
 function getCounts(){
   const itemCount = $('ul#todo-list li').length;
   const uncheckedCount = $('#todo-list input:checkbox:not(:checked)').length;
-  $( "#item-count" ).text(itemCount);
-  $( "#unchecked-count" ).text(uncheckedCount);
+  $( itemCountSpan ).text(itemCount);
+  $( uncheckedCountSpan ).text(uncheckedCount);
 }
 
 $( document ).ready(function() {
   /* listen for form submit */
-  $('#todo-form').on('submit', function(e){
+  $(todoForm).on('submit', function(e){
       e.preventDefault();
       newTodo();
   });
 
   /* listen for check box click to indicate finished task */
-  $( '#todo-list' ).on( 'click', 'input[type="checkbox"]', function() {
+  $( list ).on( 'click', 'input[type="checkbox"]', function() {
     if ($(this).is(':checked')) {
       $(this).next('label').addClass( "finished-item" );
     } else {
@@ -43,7 +46,7 @@ $( document ).ready(function() {
   });
 
   /* listen for delete button click and remove item accordingly */
-  $( '#todo-list' ).on( 'click', '.deleteItem', function() {
+  $( list ).on( 'click', '.deleteItem', function() {
      $(this).parent().remove();
      getCounts();
   });

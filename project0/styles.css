@@ -68,3 +68,7 @@ ul {
 .finished-item {
   text-decoration: line-through;
 }
+
+.deleteItem {
+  cursor: pointer;
+}
