@@ -1,3 +1,7 @@
+# Working Prototype
+App can be viewed [here](http://htmlpreview.github.io/?https://github.com/richardsa/CS50-Mobile-App-Development/blob/master/project0/index.html)
+Project description below:
+
 # Project 0
 
 The goal of this project is to practice JavaScript and its paradigms by creating
@@ -29,4 +33,4 @@ Good luck!
 ## Challenge! (Not Required)
 If you finish early and are up for a challenge, try adding delete functionality.
 This should be in the form of a button within each TODO that removes that TODO
-when clicked. 
+when clicked.
