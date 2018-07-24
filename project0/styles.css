@@ -23,16 +23,6 @@ ul {
   justify-content: space-around;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  height: 100vh;
-}
-
 .title, .controls, .button {
   flex: none;
 }
@@ -63,6 +53,10 @@ ul {
 
 .todo-container:first-of-type {
   border-top: 1px solid #333;
+}
+/* custom css */
+.container {
+  background-color: #ffffff;
 }
 
 .finished-item {
