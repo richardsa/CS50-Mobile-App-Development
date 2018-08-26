@@ -20,18 +20,21 @@
     <!--   <button class="button center" onClick="newTodo()">New TODO</button> -->
       <h3 class="text-center">TODO List</h3>
       <!-- todo form begin -->
+      <div class="container">
+  <div class="row">
+    <div class="col-md-12">
       <form id="todo-form">
-        <div class="form-row align-items-center">
-          <div class="col col-sm-10">
-            <label class="sr-only" for="inlineFormInput">Add todo item</label>
-            <input type="text" class="form-control mb-2" id="todoInput" placeholder="Add todo item">
-          </div>
-
-          <div class="col col-sm-2">
+        <div class="input-group">
+          <label class="sr-only" for="inlineFormInput">Add todo item</label>
+          <input type="text" class="form-control mb-2" id="todoInput" placeholder="Add todo item">
+          <span class="input-group-btn">
             <button type="submit" class="btn btn-primary mb-2">Submit</button>
-          </div>
+          </span>
         </div>
       </form>
+    </div>
+  </div>
+</div>
       <!-- todo form end -->
       <ul id="todo-list" class="todo-list"></ul>
     </div>
