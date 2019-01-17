@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
+
+import HomeScreen from './screens/HomeScreen';
+
+
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <HomeScreen />
     );
   }
 }
