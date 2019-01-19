@@ -1,6 +1,8 @@
 import React from 'react'
-import {Button, KeyboardAvoidingView, StyleSheet, TextInput, View} from 'react-native'
+import {Button, KeyboardAvoidingView, StyleSheet, TextInput, View, ScrollView} from 'react-native'
 import {Constants} from 'expo'
+
+import Row from './Row'
 
 const styles = StyleSheet.create({
   container: {
@@ -26,6 +28,9 @@ export default class SearchMoviesForm extends React.Component {
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
+      <ScrollView>
+        {search.Search.map(movie => <Row  key={movie.Poster} {...movie} /> )}
+      </ScrollView>
         <TextInput
           style={styles.input}
           placeholder="Search movies..."
