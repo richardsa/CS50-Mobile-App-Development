@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
 })
 
 const Row = props => (
-  <View style={styles.row}>
+  <View style={styles.row} >
     <Text>{props.Title} - {props.Year}</Text>
   </View>
 )

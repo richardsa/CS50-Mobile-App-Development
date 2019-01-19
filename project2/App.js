@@ -1,12 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 import { search, movie } from './mockData'
 
 import { createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
-
 import HomeScreen from './screens/HomeScreen';
-
-import Row from './Row'
+import SearchMoviesForm from './SearchMoviesForm'
+import MoviesList from './MoviesList'
 
 export default class App extends React.Component {
   state = {
@@ -17,12 +16,14 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container} >
-          <ScrollView>
+        <MoviesList
+          movies={this.state.search.Search}
+        />
 
-            {search.Search.map(movie => <Row  key={movie.Poster} {...movie} /> )}
-          </ScrollView>
       </View>
       //<HomeScreen search={this.state.search} movie={this.state.movie} />
+        // mapping array syntax
+      //  {search.Search.map(movie => <Row  key={movie.Poster} {...movie} /> )}
     );
   }
 }

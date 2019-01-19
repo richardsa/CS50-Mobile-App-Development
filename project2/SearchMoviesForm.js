@@ -28,9 +28,6 @@ export default class SearchMoviesForm extends React.Component {
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
-      <ScrollView>
-        {search.Search.map(movie => <Row  key={movie.Poster} {...movie} /> )}
-      </ScrollView>
         <TextInput
           style={styles.input}
           placeholder="Search movies..."
