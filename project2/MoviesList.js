@@ -16,7 +16,7 @@ const MoviesList = props => {
       renderItem={this.renderItem}
       keyExtractor={this._keyExtractor}
       sections={[{
-        data: props.movies
+        data: props.screenProps.movies
       }]}
     />
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button} from 'react-native'
+import { Button } from 'react-native'
 import SearchMoviesForm from '../SearchMoviesForm'
 
 export default class HomeScreen extends React.Component {
@@ -8,15 +8,27 @@ export default class HomeScreen extends React.Component {
       headerTitle: 'Search Movies',
       headerRight: (
         <Button
-          title="Movie"
-          onPress={() => navigation.navigate('MovieDetails')}
+          title="Movie List"
+          onPress={() => navigation.navigate('MoviesList')}
           color="#a41034"
         />
       ),
     };
   };
-
   render() {
-    return <SearchMoviesForm />;
+    return (
+      <React.Fragment>
+        <SearchMoviesForm />
+        <Button title="Go to movie details"
+        onPress={() => {
+            /* 1. Navigate to the Details route with params */
+            this.props.navigation.navigate('MovieDetails', {
+              movie: this.props.screenProps.movie
+            });
+          }}
+      />
+      </React.Fragment>
+    );
   }
+
 }

@@ -25,18 +25,14 @@ const styles = StyleSheet.create({
 
 
 export default class SearchMoviesForm extends React.Component {
-
   render() {
+
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <TextInput
           style={styles.input}
           placeholder="Search movies..."
         />
-        <Button
-               title="Movie"
-               onPress={() => this.props.navigation.navigate('MovieDetails')}
-             />
       </KeyboardAvoidingView>
     )
   }

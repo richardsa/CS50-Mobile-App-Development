@@ -49,6 +49,7 @@ export default class App extends React.Component {
   render() {
     return <AppNavigator screenProps={{
           movies: this.state.search.Search,
+          movie: this.state.movie,
           }} />;
   }
 }
