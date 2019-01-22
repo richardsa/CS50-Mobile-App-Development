@@ -11,10 +11,13 @@ import SearchMoviesForm from './SearchMoviesForm'
 import MoviesList from './MoviesList'
 import LoginScreen from './screens/LoginScreen';
 import SettingsScreen from './screens/SettingsScreen';
+import MovieDetailsScreen from './screens/MovieDetailsScreen'
 
 const NavigationTab = createStackNavigator({
   HomeScreen: HomeScreen,
   MoviesList: MoviesList,
+  MovieDetails: MovieDetailsScreen,
+  SearchMoviesForm: SearchMoviesForm,
 }, {
   initialRouteName: 'HomeScreen',
   navigationOptions: {
@@ -45,7 +48,7 @@ export default class App extends React.Component {
 
   render() {
     return <AppNavigator screenProps={{
-          contacts: this.state.search,
+          movies: this.state.search.Search,
           }} />;
   }
 }

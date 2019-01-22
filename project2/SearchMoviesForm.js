@@ -2,6 +2,7 @@ import React from 'react'
 import {Button, KeyboardAvoidingView, StyleSheet, TextInput, View, ScrollView} from 'react-native'
 import {Constants} from 'expo'
 
+
 import Row from './Row'
 
 const styles = StyleSheet.create({
@@ -32,6 +33,10 @@ export default class SearchMoviesForm extends React.Component {
           style={styles.input}
           placeholder="Search movies..."
         />
+        <Button
+               title="Movie"
+               onPress={() => this.props.navigation.navigate('MovieDetails')}
+             />
       </KeyboardAvoidingView>
     )
   }
