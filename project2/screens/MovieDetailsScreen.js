@@ -1,23 +1,31 @@
 import React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Button, Text, View, Image } from 'react-native';
 
 export default class MovieDetailsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
    return {
-     headerTitle: navigation.getParam('movie.Title', 'Not given'),
+     headerTitle: navigation.getParam('Title'),
    };
  };
   render() {
     return (
       <View>
-        <Text>{this.props.navigation.getParam('Title')}dfadfd</Text>
+        <Text>Title: {this.props.navigation.getParam('Title')}</Text>
+        <Text>Year: {this.props.navigation.getParam('Year')}</Text>
+        <Text>Title: {this.props.screenProps.movie.Title}</Text>
+        <Text>Year: {this.props.screenProps.movie.Year}</Text>
+        <Text>Director: {this.props.screenProps.movie.Director}</Text>
+        <Text>Plot: {this.props.screenProps.movie.Plot}</Text>
+        <Image source={{uri: this.props.screenProps.movie.Poster}}
+       style={{width: 400, height: 400}} />
         <Button title="Go to random" onPress={this.goToRandomContact} />
       </View>
     );
   }
 
   goToRandomContact = () => {
-    console.log(this.props.navigation.getParam('movie'))
+    console.log(this.props.navigation.getParam('Title'))
+    console.log('yeah' + this.props.screenProps.movie.Title)
   }
 
   /*goToRandomContact = () => {

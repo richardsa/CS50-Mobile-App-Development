@@ -23,7 +23,8 @@ export default class HomeScreen extends React.Component {
         onPress={() => {
             /* 1. Navigate to the Details route with params */
             this.props.navigation.navigate('MovieDetails', {
-              movie: this.props.screenProps.movie
+              movie: this.props.screenProps.movie,
+              test: 'yeah boy'
             });
           }}
       />

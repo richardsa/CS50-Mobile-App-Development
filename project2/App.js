@@ -8,7 +8,7 @@ import { createStackNavigator, createSwitchNavigator, createBottomTabNavigator }
 
 import HomeScreen from './screens/HomeScreen';
 import SearchMoviesForm from './SearchMoviesForm'
-import MoviesList from './MoviesList'
+import MoviesList from './screens/MoviesListScreen'
 import LoginScreen from './screens/LoginScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import MovieDetailsScreen from './screens/MovieDetailsScreen'
