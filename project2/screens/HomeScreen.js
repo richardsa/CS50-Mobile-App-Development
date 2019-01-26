@@ -18,8 +18,11 @@ export default class HomeScreen extends React.Component {
 
   handleSubmit = formState => {
     console.log("form state" + formState)
+    var movie_list = this.props.screenProps.movies
+    const result = movie_list.filter(movie => movie.Title == formState);
     this.props.navigation.navigate('SearchResultsScreen', {
-
+      poster: result[0].Poster,
+      year: result[0].Year,
       title: formState
     });
   }

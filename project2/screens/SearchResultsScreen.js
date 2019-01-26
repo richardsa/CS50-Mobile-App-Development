@@ -11,7 +11,10 @@ export default class SearchResultsScreen extends React.Component {
     return (
       <View>
         <Text>Title: {this.props.navigation.getParam('title')}</Text>
-        <Text>Year: {this.props.navigation.getParam('Year')}</Text>
+        <Text>Year: {this.props.navigation.getParam('year')}</Text>
+        <Image source={{uri: this.props.navigation.getParam('poster')}}
+       style={{width: 400, height: 400}} />
+        <Text>Other Results</Text>
         <Text>Title: {this.props.screenProps.movie.Title}</Text>
         <Text>Year: {this.props.screenProps.movie.Year}</Text>
         <Text>Director: {this.props.screenProps.movie.Director}</Text>
