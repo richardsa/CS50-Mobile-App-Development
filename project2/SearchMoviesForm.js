@@ -25,15 +25,84 @@ const styles = StyleSheet.create({
 
 
 export default class SearchMoviesForm extends React.Component {
-  render() {
+  state = {
+    Title: '',
+  }
 
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: 'Search Movies',
+      headerRight: (
+        <Button
+          title="Movie List"
+          onPress={() => navigation.navigate('MoviesList')}
+          color="#a41034"
+        />
+      ),
+    };
+  };
+  getHandler = key => val => {
+      this.setState({[key]: val})
+    }
+  handleSubmit = () => {
+   console.log('submit')
+   console.log(this.state.Title)
+   this.props.onSubmit(this.state.Title)
+  /* this.props.navigation.navigate('MovieDetails', {
+     movie: this.props.screenProps.movie,
+     Title: this.state.Title,
+     test: 'yeah boy',
+     this.props.onSubmit(this.state.Title)
+   });*/
+//   this.props.onSubmit(this.state.Title)
+ }
+//   this.props.onSubmit(this.state.Title)
+  render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <TextInput
           style={styles.input}
           placeholder="Search movies..."
+          value={this.state.Title}
+          onChangeText={this.getHandler('Title')}
         />
+        <Button title="Submit"
+        onPress={this.handleSubmit} />
+        <Button title="Go to random contact" onPress={this.goToRandomContact} />
+        <Button title="Go to movie details"
+        onPress={() => {
+            /* 1. Navigate to the Details route with params */
+
+            this.props.navigation.navigate('MovieDetails', {
+              movie: this.props.screenProps.movie,
+              Title: this.state.Title,
+              test: 'yeah boy'
+            });
+          }}
+      />
+
       </KeyboardAvoidingView>
     )
   }
+
+  goToRandomContact = () => {
+    console.log('yeah boyeee')
+
+    console.log('movies ' + this.state.Title)
+  /*  const phone = this.props.navigation.getParam('phone');
+    let randomContact;
+    while (!randomContact) {
+      const randomIndex = Math.floor(Math.random() * contacts.length);
+      if (contacts[randomIndex].phone !== phone) {
+        randomContact = contacts[randomIndex];
+      }
+    }*/
+
+    // this.props.navigation.navigate('ContactDetails', {
+    //   ...randomContact,
+    // });
+  /*  this.props.navigation.push('ContactDetails', {
+      ...randomContact,
+    });*/
+  };
 }

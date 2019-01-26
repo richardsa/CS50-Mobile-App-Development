@@ -15,15 +15,23 @@ export default class HomeScreen extends React.Component {
       ),
     };
   };
+
+  handleSubmit = formState => {
+    console.log("form state" + formState)
+    this.props.navigation.navigate('SearchResultsScreen', {
+
+      title: formState
+    });
+  }
   render() {
     return (
       <React.Fragment>
-        <SearchMoviesForm />
+        <SearchMoviesForm onSubmit={this.handleSubmit} />
         <Button title="Go to movie details"
         onPress={() => {
             /* 1. Navigate to the Details route with params */
             this.props.navigation.navigate('MovieDetails', {
-              movie: this.props.screenProps.movie,
+              movie: this.props.screenProps.Title,
               test: 'yeah boy'
             });
           }}

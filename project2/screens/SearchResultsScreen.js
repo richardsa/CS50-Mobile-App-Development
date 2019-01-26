@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Text, View, Image } from 'react-native';
 
-export default class MovieDetailsScreen extends React.Component {
+export default class SearchResultsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
    return {
      headerTitle: navigation.getParam('Title'),
@@ -10,7 +10,7 @@ export default class MovieDetailsScreen extends React.Component {
   render() {
     return (
       <View>
-        <Text>Title: {this.props.navigation.getParam('Title')}</Text>
+        <Text>Title: {this.props.navigation.getParam('title')}</Text>
         <Text>Year: {this.props.navigation.getParam('Year')}</Text>
         <Text>Title: {this.props.screenProps.movie.Title}</Text>
         <Text>Year: {this.props.screenProps.movie.Year}</Text>
@@ -23,7 +23,7 @@ export default class MovieDetailsScreen extends React.Component {
   }
 
   goToRandomContact = () => {
-    console.log('yeah boy eeeeeeeeeee ' + this.props.navigation.getParam('title'))
+    console.log( this.props.navigation.getParam('title'))
     console.log('yeah boy ' + JSON.stringify(this.props.screenProps))
     console.log('yeah' + this.props.screenProps.movie.Title)
   }

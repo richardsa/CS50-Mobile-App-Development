@@ -12,12 +12,14 @@ import MoviesList from './screens/MoviesListScreen'
 import LoginScreen from './screens/LoginScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import MovieDetailsScreen from './screens/MovieDetailsScreen'
+import SearchResultsScreen from './screens/SearchResultsScreen'
 
 const NavigationTab = createStackNavigator({
   HomeScreen: HomeScreen,
   MoviesList: MoviesList,
   MovieDetails: MovieDetailsScreen,
   SearchMoviesForm: SearchMoviesForm,
+  SearchResultsScreen: SearchResultsScreen,
 }, {
   initialRouteName: 'HomeScreen',
   navigationOptions: {
