@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     minWidth: 100,
     marginTop: 20,
+    marginBottom:20,
     marginHorizontal: 20,
     paddingHorizontal: 10,
     paddingVertical: 5,
@@ -68,19 +69,6 @@ export default class SearchMoviesForm extends React.Component {
         />
         <Button title="Submit"
         onPress={this.handleSubmit} />
-        <Button title="Go to random contact" onPress={this.goToRandomContact} />
-        <Button title="Go to movie details"
-        onPress={() => {
-            /* 1. Navigate to the Details route with params */
-
-            this.props.navigation.navigate('MovieDetails', {
-              movie: this.props.screenProps.movie,
-              Title: this.state.Title,
-              test: 'yeah boy'
-            });
-          }}
-      />
-
       </KeyboardAvoidingView>
     )
   }

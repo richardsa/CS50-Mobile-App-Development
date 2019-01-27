@@ -1,5 +1,25 @@
 import React from 'react';
-import { Button, Text, View, Image } from 'react-native';
+import { Button, Text, View, Image, StyleSheet } from 'react-native';
+
+import {Constants} from 'expo'
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingTop: Constants.statusBarHeight,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: 'black',
+    minWidth: 100,
+    marginTop: 20,
+    marginHorizontal: 20,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 3,
+  },
+})
 
 export default class MovieDetailsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -9,23 +29,13 @@ export default class MovieDetailsScreen extends React.Component {
  };
   render() {
     return (
-      <View>
+      <View behavior="padding" style={styles.container}>
         <Text>Title: {this.props.navigation.getParam('Title')}</Text>
         <Text>Year: {this.props.navigation.getParam('Year')}</Text>
-        <Text>Title: {this.props.screenProps.movie.Title}</Text>
-        <Text>Year: {this.props.screenProps.movie.Year}</Text>
-        <Text>Director: {this.props.screenProps.movie.Director}</Text>
-        <Text>Plot: {this.props.screenProps.movie.Plot}</Text>
-
-        <Button title="Go to random" onPress={this.goToRandomContact} />
+        <Image source={{uri: this.props.navigation.getParam('Poster')}}
+      style={{width: 400, height: 400}} />
       </View>
     );
-  }
-
-  goToRandomContact = () => {
-    console.log('yeah boy eeeeeeeeeee ' + this.props.navigation.getParam('title'))
-    console.log('yeah boy ' + JSON.stringify(this.props.screenProps))
-    console.log('yeah' + this.props.screenProps.movie.Title)
   }
 
   /*goToRandomContact = () => {

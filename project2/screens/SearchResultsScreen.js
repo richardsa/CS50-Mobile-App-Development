@@ -1,34 +1,56 @@
 import React from 'react';
-import { Button, Text, View, Image } from 'react-native';
+import { Button, Text, View, Image, StyleSheet } from 'react-native';
+import SectionListMovies from '../SectionListMovies';
+
+import {Constants} from 'expo'
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+    paddingTop: Constants.statusBarHeight,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: 'black',
+    minWidth: 100,
+    marginTop: 20,
+    marginHorizontal: 20,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 3,
+  },
+})
 
 export default class SearchResultsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
    return {
-     headerTitle: navigation.getParam('Title'),
+     headerTitle: 'Search Results',
    };
  };
   render() {
     return (
-      <View>
-        <Text>Title: {this.props.navigation.getParam('title')}</Text>
-        <Text>Year: {this.props.navigation.getParam('year')}</Text>
-        <Image source={{uri: this.props.navigation.getParam('poster')}}
-       style={{width: 400, height: 400}} />
-        <Text>Other Results</Text>
-        <Text>Title: {this.props.screenProps.movie.Title}</Text>
-        <Text>Year: {this.props.screenProps.movie.Year}</Text>
-        <Text>Director: {this.props.screenProps.movie.Director}</Text>
-        <Text>Plot: {this.props.screenProps.movie.Plot}</Text>
-
-        <Button title="Go to random" onPress={this.goToRandomContact} />
-      </View>
+      <React.Fragment>
+        <View behavior="padding" style={styles.container}>
+          <Text>Search Results for "{this.props.navigation.getParam('query')}"</Text>
+        </View>
+        <SectionListMovies
+          movies={this.props.navigation.getParam('result')}
+          onSelectMovie={(movie) => {
+              this.props.navigation.navigate('MovieDetails', {
+              Title: movie.Title,
+              Year: movie.Year,
+              Poster: movie.Poster
+            })
+          }}
+        />
+        </React.Fragment>
     );
   }
 
   goToRandomContact = () => {
     console.log( this.props.navigation.getParam('title'))
-    console.log('yeah boy ' + JSON.stringify(this.props.screenProps))
-    console.log('yeah' + this.props.screenProps.movie.Title)
+    console.log( 'result ' + this.props.navigation.getParam('result'))
+    //console.log('screenProps ' + JSON.stringify(this.props.screenProps))
   }
 
   /*goToRandomContact = () => {

@@ -13,7 +13,7 @@ const SectionListMovies = props => {
   // below version automatically has access to all
   // key value pairs of object
   // renderItem = ({item}) => <Row {...item} />
-  const renderItem = obj => <Row Title={obj.item.Title} Year={obj.item.Year} onSelectMovie={props.onSelectMovie} />
+  const renderItem = obj => <Row Title={obj.item.Title} Year={obj.item.Year} Poster={obj.item.Poster} onSelectMovie={props.onSelectMovie} />
   return (
     <SectionList
       //renderItem={this.renderItem}
