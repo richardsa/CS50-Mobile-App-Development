@@ -14,6 +14,11 @@ import SettingsScreen from './screens/SettingsScreen';
 import MovieDetailsScreen from './screens/MovieDetailsScreen'
 import SearchResultsScreen from './screens/SearchResultsScreen'
 
+import MOVIE_KEY from './env'
+
+
+console.log('movie key ' + MOVIE_KEY )
+
 const NavigationTab = createStackNavigator({
   HomeScreen: HomeScreen,
   MoviesList: MoviesList,
