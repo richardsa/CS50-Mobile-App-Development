@@ -27,6 +27,7 @@ export default class SearchResultsScreen extends React.Component {
      headerTitle: 'Search Results',
    };
  };
+
   render() {
     return (
       <React.Fragment>

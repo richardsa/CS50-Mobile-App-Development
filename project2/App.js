@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View} from 'react-native';
 import {Constants} from 'expo'
 import { search, movie } from './mockData'
-import {searchMovies} from './api'
 import { createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
 
 
@@ -42,16 +41,13 @@ const AppNavigator = createSwitchNavigator({
 }, {
   initialRouteName: 'Login',
 })
+
+
 export default class App extends React.Component {
   state = {
-  search: search,
-  movie: movie,
-}
-
-componentDidMount() {
-  console.log('moutned and about to search ...')
-  searchMovies()
-}
+    search: search,
+    movie: movie,
+  }
 
   render() {
     return <AppNavigator screenProps={{

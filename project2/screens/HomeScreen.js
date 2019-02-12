@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Text } from 'react-native'
 import SearchMoviesForm from '../SearchMoviesForm'
+import {searchMovies} from '../api'
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -19,26 +20,30 @@ export default class HomeScreen extends React.Component {
   state = {
     showError: false,
     errorMessage: "",
+    movieResults: null,
   };
+
+  getResults = async (searchQuery) => {
+    const results = await searchMovies(searchQuery)
+    if(results.Error) {
+      this.setState(prevState => ({ showError: !prevState.showError }));
+      this.setState(prevState => ({ errorMessage: results.Error }));
+    } else {
+          this.setState({movieResults: results})
+          this.props.navigation.navigate('SearchResultsScreen', {
+          title: searchQuery,
+          result: this.state.movieResults,
+          query: searchQuery
+        });
+    }
+
+  }
 
   // current search function for checking user input against mockData.js
   handleSubmit = formState => {
-    console.log("form state" + formState)
     var movie_list = this.props.screenProps.movies
-    const result = movie_list.filter(movie => movie.Title.toLowerCase().indexOf(formState.toLowerCase()) > -1);
-    console.log(JSON.stringify('result ' + result))
-    if(result == "") {
-      this.setState(prevState => ({ showError: !prevState.showError }));
-      this.setState(prevState => ({ errorMessage: formState }));
-    } else {
-      this.props.navigation.navigate('SearchResultsScreen', {
-        poster: result[0].Poster,
-        year: result[0].Year,
-        title: formState,
-        result: result,
-        query: formState
-      });
-    }
+    this.getResults(formState)
+
   }
     render() {
     return (
@@ -46,7 +51,7 @@ export default class HomeScreen extends React.Component {
           <SearchMoviesForm onSubmit={this.handleSubmit} />
           {this.state.showError && (
           <Text>
-            No results found for "{ this.state.errorMessage }"
+          "{ this.state.errorMessage }"
           </Text>
           )}
         </React.Fragment>

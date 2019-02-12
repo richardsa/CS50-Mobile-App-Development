@@ -2,9 +2,6 @@ import React from 'react'
 import {Button, KeyboardAvoidingView, StyleSheet, TextInput, View, ScrollView} from 'react-native'
 import {Constants} from 'expo'
 
-
-import Row from './Row'
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -46,8 +43,6 @@ export default class SearchMoviesForm extends React.Component {
       this.setState({[key]: val})
     }
   handleSubmit = () => {
-   console.log('submit')
-   console.log(this.state.Title)
    this.props.onSubmit(this.state.Title)
   /* this.props.navigation.navigate('MovieDetails', {
      movie: this.props.screenProps.movie,
