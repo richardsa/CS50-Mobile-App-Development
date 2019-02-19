@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, View, Image, StyleSheet } from 'react-native';
+import { Button, Text, View, Image, StyleSheet, Picker } from 'react-native';
 import SectionListMovies from '../SectionListMovies';
 
 import {Constants} from 'expo'
@@ -28,14 +28,46 @@ export default class SearchResultsScreen extends React.Component {
    };
  };
 
+ state = {
+   showError: false,
+   errorMessage: "",
+   movieResults: this.props.navigation.getParam('result'),
+ };
+
+ updateResults = async (searchQuery) => {
+   const results = await searchMovies(searchQuery)
+   const movieList = results.movieList
+   const numResults = results.numResults
+   if(results.Error) {
+     this.setState(prevState => ({ showError: !prevState.showError }));
+     this.setState(prevState => ({ errorMessage: results.Error }));
+   } else {
+         this.setState({movieResults: results.movieList})
+         this.props.navigation.navigate('SearchResultsScreen', {
+         numResults: numResults,
+         title: searchQuery,
+         result: this.state.movieResults,
+         query: searchQuery
+       });
+   }
+
+ }
+
   render() {
     return (
       <React.Fragment>
         <View behavior="padding" style={styles.container}>
           <Text>Search Results for "{this.props.navigation.getParam('query')}"</Text>
+          <Text>numResults {this.props.navigation.getParam('numResults')}</Text>
+          <Picker>
+          {this.props.navigation.getParam('pages').map((item, index) => {
+   return (< Picker.Item label={item.toString()} value={index} key={index} />);
+})}
+
+           </Picker>
         </View>
         <SectionListMovies
-          movies={this.props.navigation.getParam('result')}
+          movies={this.state.movieResults}
           onSelectMovie={(movie) => {
               this.props.navigation.navigate('MovieDetails', {
               Title: movie.Title,

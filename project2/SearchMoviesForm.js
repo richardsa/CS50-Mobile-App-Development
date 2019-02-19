@@ -43,7 +43,6 @@ export default class SearchMoviesForm extends React.Component {
       this.setState({[key]: val})
     }
   handleSubmit = () => {
-   this.props.onSubmit(this.state.Title)
   /* this.props.navigation.navigate('MovieDetails', {
      movie: this.props.screenProps.movie,
      Title: this.state.Title,
@@ -51,8 +50,9 @@ export default class SearchMoviesForm extends React.Component {
      this.props.onSubmit(this.state.Title)
    });*/
 //   this.props.onSubmit(this.state.Title)
+ this.props.onSubmit(this.state.Title)
  }
-//   this.props.onSubmit(this.state.Title)
+
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
