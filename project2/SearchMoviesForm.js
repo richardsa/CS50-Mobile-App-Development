@@ -30,28 +30,16 @@ export default class SearchMoviesForm extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerTitle: 'Search Movies',
-      headerRight: (
-        <Button
-          title="Movie List"
-          onPress={() => navigation.navigate('MoviesList')}
-          color="#a41034"
-        />
-      ),
     };
   };
+
   getHandler = key => val => {
-      this.setState({[key]: val})
-    }
+    this.setState({[key]: val})
+  }
+
   handleSubmit = () => {
-  /* this.props.navigation.navigate('MovieDetails', {
-     movie: this.props.screenProps.movie,
-     Title: this.state.Title,
-     test: 'yeah boy',
-     this.props.onSubmit(this.state.Title)
-   });*/
-//   this.props.onSubmit(this.state.Title)
- this.props.onSubmit(this.state.Title)
- }
+    this.props.onSubmit(this.state.Title)
+  }
 
   render() {
     return (
@@ -67,25 +55,4 @@ export default class SearchMoviesForm extends React.Component {
       </KeyboardAvoidingView>
     )
   }
-
-  goToRandomContact = () => {
-    console.log('yeah boyeee')
-
-    console.log('movies ' + this.state.Title)
-  /*  const phone = this.props.navigation.getParam('phone');
-    let randomContact;
-    while (!randomContact) {
-      const randomIndex = Math.floor(Math.random() * contacts.length);
-      if (contacts[randomIndex].phone !== phone) {
-        randomContact = contacts[randomIndex];
-      }
-    }*/
-
-    // this.props.navigation.navigate('ContactDetails', {
-    //   ...randomContact,
-    // });
-  /*  this.props.navigation.push('ContactDetails', {
-      ...randomContact,
-    });*/
-  };
 }

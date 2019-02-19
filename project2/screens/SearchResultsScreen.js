@@ -25,6 +25,13 @@ export default class SearchResultsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
    return {
      headerTitle: 'Search Results',
+     headerRight: (
+       <Button
+         title="New Search"
+         onPress={() => navigation.navigate('HomeScreen')}
+         color="#a41034"
+       />
+     ),
    };
  };
 
@@ -60,9 +67,9 @@ export default class SearchResultsScreen extends React.Component {
           <Text>Search Results for "{this.props.navigation.getParam('query')}"</Text>
           <Text>numResults {this.props.navigation.getParam('numResults')}</Text>
           <Picker>
-          {this.props.navigation.getParam('pages').map((item, index) => {
-   return (< Picker.Item label={item.toString()} value={index} key={index} />);
-})}
+            {this.props.navigation.getParam('pages').map((item, index) => {
+              return (< Picker.Item label={item.toString()} value={index} key={index} />);
+            })}
 
            </Picker>
         </View>
@@ -79,29 +86,4 @@ export default class SearchResultsScreen extends React.Component {
         </React.Fragment>
     );
   }
-
-  goToRandomContact = () => {
-    console.log( this.props.navigation.getParam('title'))
-    console.log( 'result ' + this.props.navigation.getParam('result'))
-    //console.log('screenProps ' + JSON.stringify(this.props.screenProps))
-  }
-
-  /*goToRandomContact = () => {
-    const { contacts } = this.props.screenProps;
-    const phone = this.props.navigation.getParam('phone');
-    let randomContact;
-    while (!randomContact) {
-      const randomIndex = Math.floor(Math.random() * contacts.length);
-      if (contacts[randomIndex].phone !== phone) {
-        randomContact = contacts[randomIndex];
-      }
-    }
-
-    // this.props.navigation.navigate('ContactDetails', {
-    //   ...randomContact,
-    // });
-    this.props.navigation.push('ContactDetails', {
-      ...randomContact,
-    });
-  };*/
 }

@@ -7,13 +7,6 @@ export default class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerTitle: 'Search Movies',
-      headerRight: (
-        <Button
-          title="Movie List"
-          onPress={() => navigation.navigate('MoviesList')}
-          color="#a41034"
-        />
-      ),
     };
   };
 
@@ -58,12 +51,11 @@ export default class HomeScreen extends React.Component {
 
   }
 
-  // current search function for checking user input against mockData.js
   handleSubmit = formState => {
     var movie_list = this.props.screenProps.movies
     this.getResults(formState)
-
   }
+
     render() {
     return (
         <React.Fragment>
@@ -77,5 +69,4 @@ export default class HomeScreen extends React.Component {
 
     );
   }
-
 }
