@@ -7,10 +7,10 @@ const processMovieSearch = movie => ({
   Year: movie.Year
 })
 
-export const searchMovies = async ( searchTerm, page = 0 ) => {
+export const searchMovies = async ( searchTerm, page = 1 ) => {
   console.log('title ' + searchTerm)
-  console.log('https://www.omdbapi.com/?s=' + searchTerm + '&apikey=' + MOVIE_KEY + '&p=' + page)
-    const response = await fetch('https://www.omdbapi.com/?s=' + searchTerm + '&apikey=' + MOVIE_KEY + '&p=' + page)
+  console.log('https://www.omdbapi.com/?s=' + searchTerm + '&apikey=' + MOVIE_KEY + '&page=' + page)
+    const response = await fetch('https://www.omdbapi.com/?s=' + searchTerm + '&apikey=' + MOVIE_KEY + '&page=' + page)
     //const results = await response.json()
     // below is rewritten above line
     // only interested in results key so can destructure

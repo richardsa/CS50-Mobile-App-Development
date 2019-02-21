@@ -34,7 +34,7 @@ export default class HomeScreen extends React.Component {
     for (var i = 1; i <= pages; i++) {
       pageArr.push(i)
     }
-    console.log(pageArr)
+
     if(results.Error) {
       this.setState(prevState => ({ showError: !prevState.showError }));
       this.setState(prevState => ({ errorMessage: results.Error }));
@@ -42,6 +42,7 @@ export default class HomeScreen extends React.Component {
           this.setState({movieResults: results.movieList})
           this.props.navigation.navigate('SearchResultsScreen', {
           pages: pageArr,
+          page: 0,
           numResults: numResults,
           title: searchQuery,
           result: this.state.movieResults,

@@ -33,12 +33,17 @@ export default class SearchMoviesForm extends React.Component {
     };
   };
 
+  componentDidMount = () => {
+    this.setState({Title: ''})
+  }
+
   getHandler = key => val => {
     this.setState({[key]: val})
   }
 
   handleSubmit = () => {
     this.props.onSubmit(this.state.Title)
+    this.setState({Title: ''})
   }
 
   render() {
